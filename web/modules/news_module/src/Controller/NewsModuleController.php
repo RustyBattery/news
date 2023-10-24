@@ -29,8 +29,10 @@ final class NewsModuleController extends ControllerBase
 
     $news = $nodeStorage->loadMultiple($ids);
 
-    $prev_link = $page > 1 ? \Drupal::request()->getRequestUri() . '?page=' . $page - 1 : null;
-    $next_link = $page < ceil($count / $per_page) ? \Drupal::request()->getRequestUri() . '?page=' . $page + 1 : null;
+    $base_url = explode('?', \Drupal::request()->getRequestUri())[0];
+
+    $prev_link = $page > 1 ? $base_url . '?page=' . $page - 1 : null;
+    $next_link = $page < ceil($count / $per_page) ? $base_url . '?page=' . $page + 1 : null;
 
     return [
       '#theme' => 'news_index',
