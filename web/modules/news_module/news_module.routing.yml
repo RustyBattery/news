@@ -1,0 +1,9 @@
+news_module.example:
+  path: '/news'
+  defaults:
+    _title: 'Новости'
+    _controller: '\Drupal\news_module\Controller\NewsModuleController::index'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: 'TRUE'

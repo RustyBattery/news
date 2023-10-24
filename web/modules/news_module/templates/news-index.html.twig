@@ -1,0 +1,31 @@
+<div class="wrapper-class">
+  <div class="row" style="display: flex; flex-wrap: wrap">
+    {% for item in news %}
+      <div class="col-md-3 mb-3" style="width: 270px; padding: 10px">
+        <a class="link-dark text-decoration-none"
+           href="{{ url('entity.node.canonical', { 'node': item.id() }) }}">
+          <img src="{{ file_url( item.field_img.entity.uri.value ) }}" alt=""
+               style="height: 250px;" class="rounded-2 w-100 object-fit-cover">
+          <div class="text-center">
+            <small class="text-secondary">{{ item.created.value|date('d-m-Y') }}</small>
+            <div class="fs-5">{{ item.title.value }}</div>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="" style="display: flex; justify-content: space-between">
+    {% if prev_link != null %}
+      <a href="{{ prev_link }}" style="padding: 10px"><<</a>
+    {% else %}
+      <div class=""></div>
+    {% endif %}
+
+    {% if next_link != null %}
+      <a href="{{ next_link }}" style="padding: 10px">>></a>
+    {% else %}
+      <div class=""></div>
+    {% endif %}
+  </div>
+</div>
+

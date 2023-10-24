@@ -1,0 +1,5 @@
+name: 'news_module'
+type: module
+description: 'Модуль новостей'
+package: Custom
+core_version_requirement: ^10

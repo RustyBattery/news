@@ -1,0 +1,14 @@
+<?php
+
+function news_module_theme() {
+  return [
+    'news_index' => [
+      'variables' => [
+        'test_var' => NULL,
+        'news' => [],
+        'prev_link' => null,
+        'next_link' => null,
+      ],
+    ],
+  ];
+}
